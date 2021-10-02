@@ -1,42 +1,40 @@
 function OrdersClientActive() {
   return (
-    <div className="boxYellowWithWorker">
-      <div className="boxYellowup">
+    <div class="boxYellowWithWorker">
+      <div class="boxYellowup">
         <img src={require('../images/circle-fix.png').default} alt="" />
 
-        <div className="fixDetail">
+        <div class="fixDetail">
           <h3>ORDER :</h3>
           <p>ประเภทงาน</p>
           <p>วันที่ :</p>
-        </div>
-        <div className="btn">
-          <a href="#">
-            <button className="btnFinishtWork">ทำรายการสำเร็จ</button>
-          </a>
         </div>
       </div>
 
       <hr />
 
-      <div className="boxYellowDown">
-        <div className="boxYellowDownDetail">
-          <div className="boxYellowDownL">
+      <div class="boxYellowDown">
+        <div class="boxYellowDownDetail">
+          <div class="boxYellowDownL">
             <p>ผู้รับบริการ : MMMMMM MMMMMM</p>
             <p>เบอร์โทรติดต่อ : 080-000-0000</p>
-            <div className="star">
+            <div class="star">
               <pre>คะแนนรีวิว : </pre>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
-              <i className="far fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
             </div>
           </div>
 
-          <button className="btnChangeWorker">เปลี่ยนช่าง</button>
+          <button class="btnChangeWorker">เปลี่ยนช่าง</button>
         </div>
 
-        <button className="btnUpSlip">อัพโหลดหลักฐานการชำระเงิน</button>
+        <button class="btnUpSlip">อัพโหลดหลักฐานการชำระเงิน</button>
+        <a href="#">
+          <button class="btnFinishtWork">ทำรายการสำเร็จ</button>
+        </a>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import OrdersWorker from '../components/OrdersWorker';
 function ProfileOrders() {
   return (
     <>
-      <section className="user_order_page">
+      {/* <section className="user_order_page">
         <div className="container">
           <Review />
 
@@ -17,14 +17,18 @@ function ProfileOrders() {
           <OrdersClient />
           <OrdersClientActive />
         </div>
-      </section>
+      </section> */}
 
-      {/* <section class="worker_service_fix_page">
+      <section class="worker_service_fix_page">
         <div class="container">
-          <Slip />
+          {/* <Review /> */}
+          <div className="headerFix">
+            <h2>MY ORDER</h2>
+          </div>
+          {/* <Slip /> */}
           <OrdersWorker />
         </div>
-      </section> */}
+      </section>
     </>
   );
 }

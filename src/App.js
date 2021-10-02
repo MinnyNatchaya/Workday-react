@@ -1,4 +1,5 @@
 import './App.css';
+import './AppResponsive.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Footer from './components/layout/Footer';
