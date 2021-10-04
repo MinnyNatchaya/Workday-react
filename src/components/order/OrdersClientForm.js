@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-function OrdersClient() {
+function OrdersClientForm() {
   return (
     <div className="boxYellow">
-      <img src={require('../images/circle-fix.png').default} alt="" />
+      <img src={require('../../images/circle-fix.png').default} alt="" />
       <div className="fixDetail">
         <h3>ORDER : </h3>
         <p>ประเภทงาน</p>
@@ -20,4 +20,4 @@ function OrdersClient() {
   );
 }
 
-export default OrdersClient;
+export default OrdersClientForm;

@@ -2,8 +2,8 @@ import './App.css';
 import './AppResponsive.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import Footer from './components/layout/Footer';
-import Header from './components/layout/header/Header';
+import Footer from './components/Footer';
+import Header from './components/header/Header';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';

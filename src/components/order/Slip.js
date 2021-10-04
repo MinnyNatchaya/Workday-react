@@ -6,7 +6,7 @@ function Slip() {
       <h2>ยืนยันรายการรับเงิน</h2>
 
       <div className="imgSlipCrop">
-        <img className="imgSlipCropChild" src={require('../images/maid.png').default} alt="" />
+        <img className="imgSlipCropChild" src={require('../../images/maid.png').default} alt="" />
       </div>
 
       <div className="btnSlipPopup">

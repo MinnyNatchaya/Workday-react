@@ -1,8 +1,8 @@
-function OrdersWorker() {
+function OrdersWorkerForm() {
   return (
     <div class="boxYellow">
       <div class="boxYellowup">
-        <img src={require('../images/circle-fix.png').default} alt="" />
+        <img src={require('../../images/circle-fix.png').default} alt="" />
         <div class="fixDetail">
           <h3>ORDER :</h3>
           <p>ประเภทงาน</p>
@@ -46,4 +46,4 @@ function OrdersWorker() {
   );
 }
 
-export default OrdersWorker;
+export default OrdersWorkerForm;

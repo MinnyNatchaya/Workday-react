@@ -1189,7 +1189,7 @@ textarea {
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: space-between;
-  min-height: 80%;
+  min-height: 85%;
 }
 
 .editProfileInput .w100 {

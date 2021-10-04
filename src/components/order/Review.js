@@ -7,7 +7,7 @@ function Review() {
       {/* <h2>ให้คะแนนผู้รับบริการ</h2> */}
 
       <div className="imgCrop">
-        <img className="imgCropChild" src={require('../images/maid.png').default} alt="" />
+        <img className="imgCropChild" src={require('../../images/maid.png').default} alt="" />
       </div>
 
       <h3>USERNAME</h3>

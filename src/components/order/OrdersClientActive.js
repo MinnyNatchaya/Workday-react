@@ -2,7 +2,7 @@ function OrdersClientActive() {
   return (
     <div class="boxYellowWithWorker">
       <div class="boxYellowup">
-        <img src={require('../images/circle-fix.png').default} alt="" />
+        <img src={require('../../images/circle-fix.png').default} alt="" />
 
         <div class="fixDetail">
           <h3>ORDER :</h3>
