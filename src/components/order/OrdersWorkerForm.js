@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+
 function OrdersWorkerForm() {
   return (
-    <div class="boxYellow">
-      <div class="boxYellowup">
+    <div className="boxYellow">
+      <div className="boxYellowup">
         <img src={require('../../images/circle-fix.png').default} alt="" />
-        <div class="fixDetail">
+        <div className="fixDetail">
           <h3>ORDER :</h3>
           <p>ประเภทงาน</p>
           <p>วันที่ :</p>
@@ -12,16 +14,16 @@ function OrdersWorkerForm() {
 
       <hr />
 
-      <div class="boxYellowDown">
+      <div className="boxYellowDown">
         <p>ผู้รับบริการ : MMMMMM MMMMMM</p>
         <p>เบอร์โทรติดต่อ : 080-000-0000</p>
-        <div class="star">
+        <div className="star">
           <pre>คะแนนรีวิว : </pre>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-          <i class="far fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star-half-alt"></i>
+          <i className="far fa-star"></i>
         </div>
 
         <p>ที่อยู่ :</p>
@@ -35,11 +37,11 @@ function OrdersWorkerForm() {
           voluptates et ipsum quidem consequatur quaerat ipsam perferendis nobis. Natus saepe cupiditate alias ab illum!
         </p>
         <br />
-        <div class="divBtnWorkerOrder">
-          <button class="btnCancleWork">ยกเลิกงาน</button>
-          <a href="#">
-            <button class="btnFinishtWork">ทำรายการสำเร็จ</button>
-          </a>
+        <div className="divBtnWorkerOrder">
+          <button className="btnCancleWork">ยกเลิกงาน</button>
+          <Link to="/profile-orders">
+            <button className="btnFinishtWork">ทำรายการสำเร็จ</button>
+          </Link>
         </div>
       </div>
     </div>

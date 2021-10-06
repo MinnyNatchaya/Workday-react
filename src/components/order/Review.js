@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function Review() {
+  const [address, setAddress] = useState('');
+
   return (
     <div className="reviewPopup">
       <i className="fas fa-times iconX"></i>
@@ -20,7 +24,14 @@ function Review() {
         <i className="far fa-star"></i>
       </div>
 
-      <textarea name="userReview" id="userReview" cols="30" rows="5">
+      <textarea
+        name="userReview"
+        id="userReview"
+        cols="30"
+        rows="5"
+        value={address}
+        onChange={e => setAddress(e.target.value)}
+      >
         เขียนรีวิว
       </textarea>
       <button className="btnAcceptReview">ยืนยัน</button>

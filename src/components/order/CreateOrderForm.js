@@ -34,9 +34,9 @@ function CreateOrderForm() {
               <button className="btncancle">ยกเลิก</button>
             </Link>
 
-            <a href="#">
+            <Link to="/create-order">
               <button className="btnclear">ล้างข้อมูล</button>
-            </a>
+            </Link>
           </div>
           <div className="divBtnOrder">
             <Link to="/profile-orders">

@@ -4,7 +4,7 @@ function SignWorkerForm() {
   return (
     <section className="all_signup_worker_page">
       <div className="container">
-        <h2>ร่วมทำงานกับ WORKDAY</h2>
+        <h2></h2>
 
         <div className="inputSignUpWorker">
           <input type="text" id="fName" name="fName" placeholder="ชื่อ" />
@@ -30,11 +30,11 @@ function SignWorkerForm() {
             <p>เพศ</p>
             <div>
               <input type="radio" id="male" name="male" />
-              <label for="male">ชาย</label>
+              <label htmlFor="male">ชาย</label>
             </div>
             <div>
               <input type="radio" id="woman" name="woman" />
-              <label for="woman">หญิง</label>
+              <label htmlFor="woman">หญิง</label>
             </div>
           </div>
         </div>

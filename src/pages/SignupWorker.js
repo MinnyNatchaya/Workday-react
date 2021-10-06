@@ -1,7 +1,14 @@
-import SignWorkerForm from '../components/signup/SignWorkerForm';
+import SignupForm from '../components/signup/SignupForm';
 
 function SignupWorker() {
-  return <SignWorkerForm />;
+  return (
+    <section className="all_signup_user_page">
+      <div className="container">
+        <h2>ร่วมทำงานกับ WORKDAY</h2>
+        <SignupForm />
+      </div>
+    </section>
+  );
 }
 
 export default SignupWorker;
