@@ -45,6 +45,18 @@ h3 {
   color: #5a5a5a;
 }
 
+input.errorMessage::-webkit-input-placeholder {
+  color: red;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.normalMessage {
+  color: black;
+}
+
 /* ----------------- hamburger -----------------*/
 
 .hamburger {
@@ -586,7 +598,7 @@ footer p {
   width: 49%;
   border: 1px solid black;
 }
-
+/* 
 .gender {
   display: flex;
   justify-content: space-between;
@@ -597,11 +609,11 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding: 0px 15px 0px 0px;
+  min-width: 80px;
+  padding: 0px 3% 0px 0px;
   width: 25%;
   border: 1px solid black;
-}
+} */
 
 .all_signup_worker_page button {
   background-color: #ffcb05;
@@ -713,14 +725,18 @@ footer p {
   justify-content: space-between;
   align-items: center;
   width: 42%;
-  height: 65vh;
+  /* height: 65vh; */
   border-radius: 10px;
   padding: 50px 100px;
   border: 3px solid black;
 }
 
-.all_signup_user_page .container a {
-  width: 100%;
+.all_signup_user_page .container > h2 {
+  margin: 0px 0px 25px 0px;
+}
+
+.all_signup_user_page .container > button {
+  margin: 25px 0px 0px 0px;
 }
 
 .inputSignUpUser {
@@ -735,12 +751,49 @@ footer p {
   width: 100%;
 }
 
-.inputSignUpUser input {
+.inputSignUpUser > input {
   font-size: 18px;
   padding: 15px;
   border-radius: 10px;
   width: 44%;
-  margin: 0;
+  margin: 0px 0px 15px 0px;
+  border: 1px solid black;
+}
+
+.inputSignUpUser .inputDate {
+  width: 50%;
+}
+
+.inputSignUpUser .inputDate input {
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.inputGender {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.gender {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+}
+
+.gender div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80px;
+  padding: 0px 3% 0px 0px;
+  width: 25%;
   border: 1px solid black;
 }
 
@@ -749,6 +802,7 @@ footer p {
   padding: 15px;
   border-radius: 10px;
   width: 49%;
+  height: 60px;
   border: 1px solid black;
 }
 
@@ -765,6 +819,7 @@ footer p {
 .all_signup_user_page button:hover {
   background-color: #e0a800;
 }
+
 /***************----------------- user_service_page ----------------- ******************/
 
 .user_service_page {
@@ -842,21 +897,23 @@ footer p {
 
 .user_crateList_page_btn div {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 50%;
+  /* border: 2px solid red; */
 }
 
 textarea {
   font-size: 18px;
   padding: 15px;
   border-radius: 10px;
-  margin: 0;
+  margin-bottom: 15px;
   border: 1px solid black;
   width: 100%;
 }
 
 .user_crateList_page_btn .btncancle {
-  width: 80%;
+  width: 100%;
+  padding: 15px 30px;
   background-color: #343a40;
   color: white;
 }
@@ -866,7 +923,9 @@ textarea {
 }
 
 .user_crateList_page_btn .btnclear {
-  width: 80%;
+  width: 100%;
+  margin-left: 20px;
+  padding: 15px 30px;
   background-color: #e6e6e6;
 }
 
@@ -875,7 +934,14 @@ textarea {
 }
 
 .user_crateList_page_btn .divBtnOrder {
-  width: 49%;
+  /* width: 49%; */
+  /* border: 2px solid gray; */
+  justify-content: end;
+}
+
+.divBtnOrder button {
+  width: 200px;
+  /* border: 2px solid gray; */
 }
 
 /***************----------------- user_order_page ----------------- ******************/

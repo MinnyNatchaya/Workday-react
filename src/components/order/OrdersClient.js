@@ -2,20 +2,20 @@ import OrdersClientActive from './OrdersClientActive';
 import OrdersClientForm from './OrdersClientForm';
 import Review from './Review';
 
-function OrdersCliect() {
+function OrdersClient() {
   return (
     <section className="user_order_page">
       <div className="container">
-        <Review />
+        {/* <Review /> */}
 
         <div className="headerFix">
           <h2>MY ORDER</h2>
         </div>
         <OrdersClientForm />
-        <OrdersClientActive />
+        {/* <OrdersClientActive /> */}
       </div>
     </section>
   );
 }
 
-export default OrdersCliect;
+export default OrdersClient;

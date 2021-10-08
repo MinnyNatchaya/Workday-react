@@ -5,7 +5,7 @@ function Signup() {
     <section className="all_signup_user_page">
       <div className="container">
         <h2>สมัครง่าย และรวดเร็ว</h2>
-        <SignupForm />
+        <SignupForm signupPage="cleint" />
       </div>
     </section>
   );

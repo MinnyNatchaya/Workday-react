@@ -10,6 +10,7 @@ function ProfileEditForm() {
   const [telephone, setTelephone] = useState('');
   const [address, setAddress] = useState('');
   const [gender, setGender] = useState('');
+  const [error, setError] = useState({});
 
   return (
     <div className="editDetailProfile">

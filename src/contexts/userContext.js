@@ -5,9 +5,15 @@ const UserContext = createContext();
 
 function UserContextProvider({ children }) {
   const [user, setUser] = useState(initailUser);
-  const role = !user?.role ? 'guest' : user.role === 'client' ? 'client' : 'worker';
+  const role = !user?.role ? 'guest' : user.role === 'Client' ? 'client' : 'worker';
 
-  return <UserContext.Provider value={{ user, setUser, role }}>{children}</UserContext.Provider>;
+  const [chooseCategory, setChooseCategory] = useState('');
+
+  return (
+    <UserContext.Provider value={{ user, setUser, role, chooseCategory, setChooseCategory }}>
+      {children}
+    </UserContext.Provider>
+  );
 }
 
 export { UserContext, UserContextProvider };

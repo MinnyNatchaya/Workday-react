@@ -4,13 +4,13 @@ import Slip from './Slip';
 
 function OrdersWorker() {
   return (
-    <section class="worker_service_fix_page">
-      <div class="container">
-        <Review />
+    <section className="worker_service_fix_page">
+      <div className="container">
+        {/* <Review /> */}
         <div className="headerFix">
           <h2>MY ORDER</h2>
         </div>
-        <Slip />
+        {/* <Slip /> */}
         <OrdersWorkerForm />
       </div>
     </section>

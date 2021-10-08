@@ -6,9 +6,11 @@ function Header() {
     <header>
       <div className="container">
         <div className="logo">
-          <i className="fas fa-bars"></i>
+          {/* <i className="fas fa-bars"></i> */}
           <Link to={'/'}>
-            <h2>WORKDAY</h2>
+            <h2>
+              W<span style={{ color: '#ffcb05' }}>O</span>RKDAY
+            </h2>
           </Link>
         </div>
         <Menu />

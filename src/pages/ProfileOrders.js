@@ -1,13 +1,11 @@
-import OrdersCliect from '../components/order/OrdersCliect';
+import { useContext } from 'react';
+import OrdersClient from '../components/order/OrdersClient';
 import OrdersWorker from '../components/order/OrdersWorker';
+import { UserContext } from '../contexts/userContext';
 
 function ProfileOrders() {
-  return (
-    <>
-      <OrdersCliect />
-      {/* <OrdersWorker /> */}
-    </>
-  );
+  const { role } = useContext(UserContext);
+  return <>{role === 'client' ? <OrdersClient /> : <OrdersWorker />}</>;
 }
 
 export default ProfileOrders;

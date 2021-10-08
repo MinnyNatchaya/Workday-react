@@ -5,7 +5,7 @@ function CreateOrderForm() {
     <section className="all_signup_user_page">
       <div className="container">
         <h2>ข้อมูลติดต่อ</h2>
-
+        {/* border: 2px solid blue; */}
         <div className="inputSignUpUser">
           <input className="w100" type="text" id="tel" name="tel" placeholder="หมายเลขโทรศัพท์" />
           <textarea name="address" id="address" cols="100" rows="3">

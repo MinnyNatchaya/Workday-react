@@ -47,7 +47,7 @@ const route = {
         component: CreateOrder
       },
       {
-        path: '/profile-orders',
+        path: '/profile/orders',
         component: ProfileOrder
       },
       {
@@ -55,7 +55,7 @@ const route = {
         component: Profile
       },
       {
-        path: '/profile-edit',
+        path: '/profile/edit',
         component: ProfileEdit
       }
     ],
@@ -80,7 +80,7 @@ const route = {
         component: CreateOrder
       },
       {
-        path: '/profile-orders',
+        path: '/profile/orders',
         component: ProfileOrder
       },
       {
@@ -88,7 +88,7 @@ const route = {
         component: Profile
       },
       {
-        path: '/profile-edit',
+        path: '/profile/edit',
         component: ProfileEdit
       }
     ],

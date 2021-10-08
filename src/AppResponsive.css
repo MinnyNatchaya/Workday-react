@@ -457,6 +457,37 @@
     width: 100%;
   }
 
+  .inputSignUpUser .inputDate {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .inputSignUpUser .inputDate input {
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .inputGender {
+    width: 100%;
+  }
+
+  .inputSignUpUser .inputGender input {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gender {
+    width: 90%;
+    height: 50px;
+  }
+
+  .gender p {
+    margin-right: 10px;
+  }
+
   .all_signup_user_page button {
     font-size: 14px;
     padding: 15px;
@@ -511,24 +542,31 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
   }
 
-  .user_crateList_page_btn .divBtnOrder a {
+  .user_crateList_page_btn .divBtnOrder {
     max-width: 40%;
   }
 
   .user_crateList_page_btn .btnclear {
+    margin-left: 3vw;
+    padding: 15px;
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .user_crateList_page_btn a .btncancle {
+  .user_crateList_page_btn .btncancle {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .user_crateList_page_btn .btnOrder {
     width: 100%;
   }
 
-  .user_crateList_page_btn a .btnOrder {
+  .divBtnOrder button {
     width: 100%;
+    padding: 15px;
   }
 
   /***************----------------- user_order_page ----------------- ******************/
@@ -833,5 +871,49 @@
   .btnAcceptSlip {
     font-size: 14px;
     width: 40%;
+  }
+
+  @media (max-width: 400px) {
+    /***************----------------- user_crateList_page ----------------- ******************/
+
+    .user_crateList_page_btn {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      width: 100%;
+      border: 2px solid gray;
+    }
+
+    .user_crateList_page_btn > div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      /* border: 2px solid gray; */
+    }
+
+    .user_crateList_page_btn .btnclear {
+      margin-left: 0;
+      padding: 15px 30px;
+    }
+
+    .user_crateList_page_btn .btncancle {
+      width: 100%;
+      padding: 15px 30px;
+    }
+
+    .user_crateList_page_btn .divBtnOrder {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      box-sizing: border-box;
+      /* flex-direction: column; */
+    }
+
+    .divBtnOrder button {
+      width: 75vw;
+      /* border: 2px solid gray; */
+    }
   }
 }

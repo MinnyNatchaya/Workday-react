@@ -5,7 +5,7 @@ function SignupWorker() {
     <section className="all_signup_user_page">
       <div className="container">
         <h2>ร่วมทำงานกับ WORKDAY</h2>
-        <SignupForm />
+        <SignupForm signupPage="worker" />
       </div>
     </section>
   );

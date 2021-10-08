@@ -9,6 +9,7 @@ import { setToken } from '../services/localStorage';
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const { setUser } = useContext(UserContext);
 
@@ -16,13 +17,40 @@ function LoginForm() {
 
   const handleSubmitLogin = async e => {
     e.preventDefault();
+
+    let isError = false;
+
     try {
-      const res = await axios.post('/login', { username, password });
-      setToken(res.data.token);
-      setUser(jwtDecode(res.data.token));
-      history.push('/');
+      if (username.trim() === '') {
+        setError(currErr => ({ ...currErr, username: '**Please enter your username' }));
+        isError = true;
+      }
+
+      if (password.trim() === '') {
+        setError(currErr => ({ ...currErr, password: '**Please enter your password' }));
+        isError = true;
+      } else if (password.length < 6) {
+        console.log(password.trim().length);
+        setError(currErr => ({ ...currErr, password: '**Password validation is at least 6 character' }));
+        isError = true;
+        setPassword('');
+      }
+      if (!isError) {
+        const res = await axios.post('/login', { username, password });
+        setToken(res.data.token);
+        setUser(jwtDecode(res.data.token));
+        history.push('/');
+      }
     } catch (err) {
-      console.log(err);
+      console.dir(err);
+      if (err.response.data.messageUsername) {
+        setError(currErr => ({ ...currErr, username: err.response.data.messageUsername }));
+        setUsername('');
+      }
+      if (err.response.data.messagePassword) {
+        setError(currErr => ({ ...currErr, password: err.response.data.messagePassword }));
+        setPassword('');
+      }
     }
   };
 
@@ -42,7 +70,8 @@ function LoginForm() {
               type="text"
               id="userName"
               name="userName"
-              placeholder="USERNAME/ชื่อบัญชีผู้ใช้"
+              className={error.username ? 'errorMessage' : 'normalMessage'}
+              placeholder={error.username ? error.username : 'USERNAME/ชื่อบัญชีผู้ใช้'}
               value={username}
               onChange={e => setUsername(e.target.value)}
             />
@@ -50,7 +79,8 @@ function LoginForm() {
               type="password"
               id="password"
               name="password"
-              placeholder="PASSWORD/รหัสผ่าน"
+              className={error.password ? 'errorMessage' : 'normalMessage'}
+              placeholder={error.password ? error.password : 'PASSWORD/รหัสผ่าน'}
               value={password}
               onChange={e => setPassword(e.target.value)}
             />

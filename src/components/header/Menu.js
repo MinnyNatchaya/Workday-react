@@ -5,7 +5,7 @@ import MenuItem from './MenuItem';
 const menuGuest = [
   {
     to: '/signup-worker',
-    title: 'Work with us'
+    title: 'Work with Us'
   },
   {
     to: '/login',
