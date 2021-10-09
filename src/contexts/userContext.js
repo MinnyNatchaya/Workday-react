@@ -7,10 +7,10 @@ function UserContextProvider({ children }) {
   const [user, setUser] = useState(initailUser);
   const role = !user?.role ? 'guest' : user.role === 'Client' ? 'client' : 'worker';
 
-  const [chooseCategory, setChooseCategory] = useState('');
+  const [chooseService, setChooseService] = useState({});
 
   return (
-    <UserContext.Provider value={{ user, setUser, role, chooseCategory, setChooseCategory }}>
+    <UserContext.Provider value={{ user, setUser, role, chooseService, setChooseService }}>
       {children}
     </UserContext.Provider>
   );

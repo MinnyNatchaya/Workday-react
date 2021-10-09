@@ -27,59 +27,50 @@ import { UserContext } from '../contexts/userContext';
 // ];
 
 function ServiceType() {
-  const { chooseCategory } = useContext(UserContext);
-  const [categorys, setCategorys] = useState([]);
+  const { chooseService, setChooseService } = useContext(UserContext);
   const [subCategorys, setSubCategorys] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('/category')
-      .then(res => {
-        setCategorys(curr => [...curr, res.data.category]);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    axios
-      .get('/sub-category')
-      .then(res => {
-        setSubCategorys(curr => [...curr, res.data.category]);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    const callSubCategory = async () => {
+      await axios
+        .get('/sub-category')
+        .then(res => {
+          setSubCategorys(res.data.subCategory);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    callSubCategory();
   }, []);
-
-  console.dir(subCategorys);
 
   return (
     <section className="user_service_page">
       <div className="container">
         <div className="headerFix">
-          <h2>{chooseCategory}</h2>
+          <h2>{chooseService.category}</h2>
         </div>
 
         <div className="boxFixList">
-          {/* {subCategorys?.map(item => (
+          {subCategorys.map(item => (
             <Link to="/create-order">
               <div className="boxYellow">
-                <img src={require(`../images/circle-fix.png`).default} alt="" />
+                <img src={require(chooseService.logoUrl).default} alt="" />
                 <div>
                   <p>{item.name}</p>
                 </div>
               </div>
             </Link>
-          ))} */}
+          ))}
 
-          <Link to="/create-order">
+          {/* <Link to="/create-order">
             <div className="boxYellow">
               <img src={require(`../images/circle-fix.png`).default} alt="" />
               <div>
                 <p>สายไฟ-ปลั๊กไฟ-สวิตซ์ไฟ</p>
               </div>
             </div>
-          </Link>
+          </Link> */}
 
           {/* <a href="./user_crateList.html">
             <div className="boxYellow">

@@ -86,7 +86,6 @@ function SignupForm({ signupPage }) {
 
   return (
     <>
-      {error?.username && <p>{error?.username}</p>}
       <div className="inputSignUpUser">
         <input
           type="text"

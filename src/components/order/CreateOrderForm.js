@@ -39,7 +39,7 @@ function CreateOrderForm() {
             </Link>
           </div>
           <div className="divBtnOrder">
-            <Link to="/profile-orders">
+            <Link to="/profile/orders">
               <button>ยืนยัน ORDER</button>
             </Link>
           </div>

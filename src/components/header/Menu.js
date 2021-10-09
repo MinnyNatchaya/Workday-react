@@ -23,7 +23,7 @@ const menuUser = [
     title: 'Service'
   },
   {
-    to: '/profile-orders',
+    to: '/profile/orders',
     title: 'Orders'
   },
   {

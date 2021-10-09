@@ -72,12 +72,12 @@ const route = {
         component: Service
       },
       {
-        path: '/service-type-worker',
-        component: SeviceTypeWorker
+        path: '/service-type',
+        component: ServiceType
       },
       {
-        path: '/create-order',
-        component: CreateOrder
+        path: '/service-type-worker',
+        component: SeviceTypeWorker
       },
       {
         path: '/profile/orders',

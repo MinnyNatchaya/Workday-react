@@ -18,7 +18,7 @@ function ProfileForm() {
       </p>
       <br />
       <div className="editProfile">
-        <Link to="/profile-edit">
+        <Link to="/profile/edit">
           <button className="btnEditProfile">แก้ไขประวัติ</button>
         </Link>
       </div>
