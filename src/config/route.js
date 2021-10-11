@@ -39,11 +39,11 @@ const route = {
         component: Service
       },
       {
-        path: '/service-type',
+        path: '/service-type/:categoryId',
         component: ServiceType
       },
       {
-        path: '/create-order',
+        path: '/create-order/:subCategoryId',
         component: CreateOrder
       },
       {
@@ -59,7 +59,7 @@ const route = {
         component: ProfileEdit
       }
     ],
-    redirect: '/login'
+    redirect: '/'
   },
   worker: {
     route: [
@@ -72,7 +72,7 @@ const route = {
         component: Service
       },
       {
-        path: '/service-type',
+        path: '/service-type/:categoryId',
         component: ServiceType
       },
       {
@@ -92,7 +92,7 @@ const route = {
         component: ProfileEdit
       }
     ],
-    redirect: '/login'
+    redirect: '/'
   }
 };
 

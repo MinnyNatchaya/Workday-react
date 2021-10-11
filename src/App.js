@@ -22,6 +22,7 @@ import routes from './config/route';
 
 function App() {
   const { role } = useContext(UserContext);
+  // console.log(routes[role]);
 
   return (
     <div className="App">

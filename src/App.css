@@ -289,14 +289,15 @@ header .select {
 }
 
 .service .container {
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: center;
 }
 
 .service a {
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: none;
+  margin: 0px 8px;
 }
 
 .service .container div {
@@ -1247,6 +1248,7 @@ textarea {
   border-radius: 10px;
   padding: 50px 100px;
   border: 3px solid black;
+  margin-bottom: 30px;
 }
 
 .editProfileInput {
@@ -1254,11 +1256,16 @@ textarea {
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: space-between;
-  min-height: 85%;
+  /* min-height: 85%; */
+}
+
+.editProfileInput > p {
+  margin: 0px 0px 8px 0px;
 }
 
 .editProfileInput .w100 {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .editProfileInput input {
@@ -1308,6 +1315,7 @@ textarea {
 }
 
 .btnProfile {
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   width: 100%;

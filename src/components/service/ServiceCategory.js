@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../contexts/userContext';
 import axios from '../../config/axios';
 
 function ServiceCategory() {
   const { role, setChooseService } = useContext(UserContext);
+  const history = useHistory();
 
   const [categorys, setCategorys] = useState([]);
 
@@ -27,7 +28,7 @@ function ServiceCategory() {
       {categorys.map(item => (
         <section
           className={`service_page_${
-            item.name === 'การไฟฟ้า'
+            item.name === 'งานไฟฟ้า'
               ? 'fix'
               : item.name === 'งานประปา'
               ? 'water'
@@ -40,13 +41,17 @@ function ServiceCategory() {
             <div>
               <h1>{item.name}</h1>
               <h3>{item.caption}</h3>
-              <Link to="/service-type">
-                <button
-                  onClick={() => setChooseService({ categoryId: item.id, category: item.name, logoUrl: item.logoUrl })}
-                >
-                  {role === 'client' ? 'จองบริการ >' : 'ORDER >'}
-                </button>
-              </Link>
+
+              <button
+                onClick={() => {
+                  // console.log(`item.id`, item.id);
+                  history.push(`/service-type/${item.id}`);
+                  // setChooseService({ key: item.id, categoryId: item.id, category: item.name, logoUrl: item.logoUrl })
+                }}
+              >
+                {/* {console.dir(item.id)} */}
+                {role === 'client' ? 'จองบริการ >' : 'ORDER >'}
+              </button>
             </div>
           </div>
         </section>

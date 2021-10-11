@@ -1,40 +1,22 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import axios from '../config/axios';
 import { UserContext } from '../contexts/userContext';
-
-// const service = [
-//   {
-//     name: 'งานไฟฟ้า',
-//     logo: './images/circle-fix.png',
-//     detail: ['สายไฟ-ปลั๊กไฟ-สวิตซ์ไฟ', 'หลอดไฟ', 'เครื่องใช้ไฟฟ้า', 'บริการงานไฟฟ้าอื่นๆ']
-//   },
-//   {
-//     name: 'งานประปา',
-//     logo: './images/circle-waterdrop.png',
-//     detail: ['ท่อตัน', 'น้ำรั่วซึม', 'ท่อน้ำ-ระบบน้ำ-ระบบประปา', 'ปั๊มน้ำ', 'บริการงานประปาอื่นๆ']
-//   },
-//   {
-//     name: 'บริการแม่บ้าน',
-//     logo: './images/circle-broom.png',
-//     detail: ['ทำความสะอาดบ้าน', 'ทำความสะอาดใหญ่', 'ซักผ้า-รีดผ้า', 'บริการงานบ้านอื่นๆ']
-//   },
-//   {
-//     name: 'กำจัดแมลง',
-//     logo: './images/circle-bug.png',
-//     detail: ['กำจัดแมลง', 'พ่นยาฆ่าแมลง', 'งานกำจัดแมลงอื่นๆ']
-//   }
-// ];
 
 function ServiceType() {
   const { chooseService, setChooseService } = useContext(UserContext);
   const [subCategorys, setSubCategorys] = useState([]);
+  const { role } = useContext(UserContext);
+  const param = useParams();
+  const history = useHistory();
+  // console.dir(param);
 
   useEffect(() => {
     const callSubCategory = async () => {
       await axios
-        .get('/sub-category')
+        .get(`/sub-category/category/${param.categoryId}`)
         .then(res => {
+          // console.log(res);
           setSubCategorys(res.data.subCategory);
         })
         .catch(err => {
@@ -48,14 +30,20 @@ function ServiceType() {
     <section className="user_service_page">
       <div className="container">
         <div className="headerFix">
-          <h2>{chooseService.category}</h2>
+          <h2>{subCategorys?.[0]?.Category?.name}</h2>
         </div>
 
         <div className="boxFixList">
           {subCategorys.map(item => (
-            <Link to="/create-order">
-              <div className="boxYellow">
-                <img src={require(chooseService.logoUrl).default} alt="" />
+            <Link to={`/${role === 'client' ? `/create-order/${item.id}` : 'service-type-worker'}`}>
+              <div
+                className="boxYellow"
+                // onClick={
+                //   () => history.push(`/create-order/${item.id}`)
+                //   // setChooseService(curr => ({ ...curr, key: item.id, subCategoryId: item.id, subCategory: item.name }))
+                // }
+              >
+                <img src={item.Category.logoUrl} alt="" />
                 <div>
                   <p>{item.name}</p>
                 </div>

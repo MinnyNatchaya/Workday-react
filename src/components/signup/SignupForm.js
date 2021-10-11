@@ -73,7 +73,7 @@ function SignupForm({ signupPage }) {
         });
         history.push({
           pathname: '/login',
-          state: { message: 'Your account has benn created' }
+          state: { message: 'Your account has been created' }
         });
       }
     } catch (err) {

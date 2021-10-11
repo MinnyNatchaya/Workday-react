@@ -1,28 +1,68 @@
+import axios from '../../config/axios';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function ProfileForm() {
-  return (
-    <div className="detailProfile">
-      <div>
-        <p>ชื่อ : MMMMMMM</p>
-        <p>นามสกุล : MMMMMMM</p>
-        <p>วันเกิด : 01/01/2020</p>
-        <p>เพศ : AA</p>
-      </div>
+  const [profile, setProfile] = useState([]);
 
-      <p>เบอร์ติดต่อ : 080-000-0000</p>
-      <p>ที่อยู่ :</p>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit amet eius dolorem inventore fuga eaque
-        temporibus error neque, iure quis a dolor delectus. Saepe reprehenderit nostrum nemo, a magnam aliquam.
-      </p>
-      <br />
-      <div className="editProfile">
-        <Link to="/profile/edit">
-          <button className="btnEditProfile">แก้ไขประวัติ</button>
-        </Link>
-      </div>
-    </div>
+  useEffect(() => {
+    const callProfile = async () => {
+      await axios
+        .get('/profile')
+        .then(res => {
+          setProfile(res.data.user);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    callProfile();
+  }, []);
+
+  return (
+    <>
+      {profile.map(item => (
+        <>
+          <div className="bodyProfile">
+            <div className="imgCrop">
+              <img className="imgCropChild" src={item.imgUrl} alt="" />
+            </div>
+
+            <h3>{item.username}</h3>
+
+            <div className="star">
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star-half-alt"></i>
+              <i className="far fa-star"></i>
+            </div>
+
+            <p>({item.rate} REVIEW)</p>
+            <h3>ประวัติ</h3>
+          </div>
+
+          <div className="detailProfile">
+            <div>
+              <p>ชื่อ : {item.lastName}</p>
+              <p>นามสกุล : {item.firstName}</p>
+              <p>วันเกิด : {item.birthDate}</p>
+              <p>เพศ : {item.gender}</p>
+            </div>
+
+            <p>เบอร์ติดต่อ : {item.telephone}</p>
+            <p>ที่อยู่ :</p>
+            <p>{item.address} </p>
+            <br />
+            <div className="editProfile">
+              <Link to="/profile/edit">
+                <button className="btnEditProfile">แก้ไขประวัติ</button>
+              </Link>
+            </div>
+          </div>
+        </>
+      ))}
+    </>
   );
 }
 
