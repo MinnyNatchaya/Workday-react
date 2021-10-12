@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 function ProfileEditForm() {
   // const [profile, setProfile] = useState([]);
   const history = useHistory();
+  const [previewImgUrl, setPreviewImgUrl] = useState('');
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -49,7 +50,8 @@ function ProfileEditForm() {
   };
 
   const handleChangeUploadImg = e => {
-    setImgUrl(URL.createObjectURL(e.target.files[0]));
+    setImgUrl(e.target.files[0]);
+    setPreviewImgUrl(URL.createObjectURL(e.target.files[0]));
     //URL.createObjectURL คือ preview รูป
   };
 
@@ -128,7 +130,7 @@ function ProfileEditForm() {
             <img className="imgChangeimg" src={require('../../images/upload.png').default} alt="" />
           </button>
           <input type="file" ref={hiddenFileInput} onChange={handleChangeUploadImg} style={{ display: 'none' }} />
-          <img className="imgCropChild" src={imgUrl} alt="" />
+          <img className="imgCropChild" src={previewImgUrl ? previewImgUrl : imgUrl} alt="" />
         </div>
 
         <h3>{username}</h3>
@@ -157,6 +159,7 @@ function ProfileEditForm() {
             placeholder="ชื่อ"
             value={firstName}
             onChange={e => {
+              setError(curr => ({ ...curr, firstName: '' }));
               setFirstName(e.target.value);
             }}
           />
@@ -171,6 +174,7 @@ function ProfileEditForm() {
             placeholder="นามสกุล"
             value={lastName}
             onChange={e => {
+              setError(curr => ({ ...curr, lastName: '' }));
               setLastName(e.target.value);
             }}
           />

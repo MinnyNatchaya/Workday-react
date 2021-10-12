@@ -722,6 +722,7 @@ footer p {
 }
 
 .all_signup_user_page .container {
+  margin: 50px 0px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -891,6 +892,7 @@ footer p {
 
 /***************----------------- user_crateList_page ----------------- ******************/
 .user_crateList_page_btn {
+  margin-top: 30px;
   display: flex;
   width: 100%;
   justify-content: space-between;

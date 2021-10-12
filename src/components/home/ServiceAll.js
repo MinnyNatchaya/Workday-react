@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import axios from '../../config/axios';
 
 function ServiceAll() {
   const { role, setChooseService } = useContext(UserContext);
-
+  const history = useHistory();
   const [categorys, setCategorys] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function ServiceAll() {
     <section className="service">
       <div className="container">
         {categorys.map(item => (
-          <Link to="/service-type">
+          <a>
             <div
               className={`${
                 item.name === 'งานไฟฟ้า'
@@ -40,15 +40,16 @@ function ServiceAll() {
             >
               <div
                 className="box"
-                onClick={() =>
-                  setChooseService({ key: item.id, categoryId: item.id, category: item.name, logoUrl: item.logoUrl })
+                onClick={
+                  () => history.push(`/service-type/${item.id}`)
+                  // setChooseService({ key: item.id, categoryId: item.id, category: item.name, logoUrl: item.logoUrl })
                 }
               >
                 <h1>{item.name}</h1>
                 <h3>{item.caption}</h3>
               </div>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </section>

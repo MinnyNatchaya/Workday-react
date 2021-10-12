@@ -5,8 +5,9 @@ import { UserContext } from '../../contexts/userContext';
 
 function CreateOrderForm() {
   const [cities, setCities] = useState([]);
+  const [order, setOrder] = useState([]);
   const history = useHistory();
-  // const [telephone, setTelephone] = useState('');
+
   const [address, setAddress] = useState('');
   const [detail, setDetail] = useState('');
   const [date, setDate] = useState('');
@@ -16,6 +17,22 @@ function CreateOrderForm() {
   const param = useParams();
 
   useEffect(() => {
+    const callOrder = async () => {
+      await axios
+        .get(`/order/${param.id}`)
+        .then(res => {
+          setOrder(res.data.orderItem);
+          setAddress(res.data.orderItem[0].address);
+          setDetail(res.data.orderItem[0].detail);
+          setDate(res.data.orderItem[0].date);
+          setCity(res.data.orderItem[0].cityId);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    callOrder();
+
     const callCity = async () => {
       await axios
         .get('/city')
@@ -43,28 +60,18 @@ function CreateOrderForm() {
     let isError = false;
 
     try {
-      // if (telephone.trim() === '') {
-      //   setError(currErr => ({ ...currErr, telephone: '**Please enter your telephone' }));
-      //   isError = true;
-      // }
-
-      if (address.trim() === '') {
-        setError(currErr => ({ ...currErr, address: '**Please enter your address' }));
-        isError = true;
-      }
-
       if (date.trim() === '') {
         setError(currErr => ({ ...currErr, date: '**Please choose date' }));
         isError = true;
       }
 
-      if (city.trim() === '') {
+      if (toString(city).trim() === '') {
         setError(currErr => ({ ...currErr, city: '**Please choose city' }));
         isError = true;
       }
 
       if (!isError) {
-        await axios.post(`/order/create/${param.subCategoryId}`, {
+        await axios.put(`/order/edit/${param.id}`, {
           address,
           date,
           detail,
@@ -72,7 +79,7 @@ function CreateOrderForm() {
         });
         history.push({
           pathname: '/profile/orders',
-          state: { message: 'Your order has been created' }
+          state: { message: 'Your order has been updated' }
         });
       }
     } catch (err) {
@@ -86,25 +93,14 @@ function CreateOrderForm() {
         <h2>ข้อมูลติดต่อ</h2>
 
         <div className="inputSignUpUser">
-          {/* <input
-            className="w100"
-            type="text"
-            id="tel"
-            name="tel"
-            placeholder="หมายเลขโทรศัพท์"
-            onChange={e => {
-              setError(curr => ({ ...curr, telephone: '' }));
-              setTelephone(e.target.value);
-            }}
-          /> */}
           {error.address && <p className="errorMessage">{error.address}</p>}
           <textarea
             name="address"
             id="address"
             cols="100"
             rows="5"
-            placeholder="ที่อยู่"
             value={address}
+            placeholder="ที่อยู่"
             onChange={e => {
               setError(curr => ({ ...curr, address: '' }));
               setAddress(e.target.value);
@@ -115,7 +111,7 @@ function CreateOrderForm() {
             name="detailsWork"
             id="detailsWork"
             cols="100"
-            rows="4"
+            rows="8"
             placeholder="รายละเอียดงาน"
             value={detail}
             onChange={e => {
@@ -153,20 +149,12 @@ function CreateOrderForm() {
             {cities.map(item => (
               <option value={item.id}>{item.name}</option>
             ))}
-
-            {/* <option value="กรุงเทพ">กรุงเทพ</option>
-            <option value="นนทบุรี">นนทบุรี</option>
-            <option value="ปทุมธานี">ปทุมธานี</option>
-            <option value="นครปฐม">นครปฐม</option>
-            <option value="สมุทรสาคร">สมุทรสาคร</option>
-            <option value="สมุทรปราการ">สมุทรปราการ</option>
-            <option value="อื่นๆ">อื่นๆ</option> */}
           </select>
         </div>
 
         <div className="user_crateList_page_btn">
           <div>
-            <Link to="/service">
+            <Link to="/profile/orders">
               <button className="btncancle">ยกเลิก</button>
             </Link>
 

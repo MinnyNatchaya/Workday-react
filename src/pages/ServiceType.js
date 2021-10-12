@@ -35,20 +35,20 @@ function ServiceType() {
 
         <div className="boxFixList">
           {subCategorys.map(item => (
-            <Link to={`/${role === 'client' ? `/create-order/${item.id}` : 'service-type-worker'}`}>
+            <a>
               <div
                 className="boxYellow"
-                // onClick={
-                //   () => history.push(`/create-order/${item.id}`)
-                //   // setChooseService(curr => ({ ...curr, key: item.id, subCategoryId: item.id, subCategory: item.name }))
-                // }
+                onClick={
+                  () => history.push(role === 'client' ? `/order/${item.id}` : `service-type-worker/${item.id}`)
+                  // setChooseService(curr => ({ ...curr, key: item.id, subCategoryId: item.id, subCategory: item.name }))
+                }
               >
                 <img src={item.Category.logoUrl} alt="" />
                 <div>
                   <p>{item.name}</p>
                 </div>
               </div>
-            </Link>
+            </a>
           ))}
 
           {/* <Link to="/create-order">

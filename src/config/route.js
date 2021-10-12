@@ -6,6 +6,7 @@ import SignupWorker from '../pages/SignupWorker';
 import ServiceType from '../pages/ServiceType';
 import SeviceTypeWorker from '../pages/SeviceTypeWorker';
 import CreateOrder from '../pages/CreateOrder';
+import OrderEdit from '../pages/OrderEdit';
 import ProfileOrder from '../pages/ProfileOrders';
 import Profile from '../pages/Profile';
 import ProfileEdit from '../pages/ProfileEdit';
@@ -43,8 +44,12 @@ const route = {
         component: ServiceType
       },
       {
-        path: '/create-order/:subCategoryId',
+        path: '/order/:subCategoryId',
         component: CreateOrder
+      },
+      {
+        path: '/order/edit/:id',
+        component: OrderEdit
       },
       {
         path: '/profile/orders',
@@ -76,7 +81,7 @@ const route = {
         component: ServiceType
       },
       {
-        path: '/service-type-worker',
+        path: '/service-type-worker/:subCategoryId',
         component: SeviceTypeWorker
       },
       {
