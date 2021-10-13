@@ -18,7 +18,7 @@ function OrdersClientActive() {
       <div className="boxYellowDown">
         <div className="boxYellowDownDetail">
           <div className="boxYellowDownL">
-            <p>ผู้รับบริการ : MMMMMM MMMMMM</p>
+            <p>ผู้ให้บริการ : MMMMMM MMMMMM</p>
             <p>เบอร์โทรติดต่อ : 080-000-0000</p>
             <div className="star">
               <pre>คะแนนรีวิว : </pre>

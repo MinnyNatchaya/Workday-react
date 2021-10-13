@@ -12,9 +12,8 @@ function SeviceTypeWorker() {
   useEffect(() => {
     const callSubCategory = async () => {
       await axios
-        .get(`/sub-category/category/${param.categoryId}`)
+        .get(`/sub-category/${param.categoryId}`)
         .then(res => {
-          // console.log(res);
           setSubCategorys(res.data.subCategory);
         })
         .catch(err => {
@@ -28,7 +27,7 @@ function SeviceTypeWorker() {
     <section className="worker_service_fix_page">
       <div className="container">
         <div className="headerFix">
-          <h2>{subCategorys?.[0]?.Category?.name}</h2>
+          <h2>{subCategorys?.[0]?.name}</h2>
         </div>
         <ServiceTypeWorkerFilter />
         <ServiceTypeWorkerForm />

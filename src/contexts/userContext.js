@@ -8,9 +8,23 @@ function UserContextProvider({ children }) {
   const role = !user?.role ? 'guest' : user.role === 'Client' ? 'client' : 'worker';
 
   const [chooseService, setChooseService] = useState({});
+  const [isUpSlip, setIsUpSlip] = useState(false);
+  const [isFinishWork, setIsFinishWork] = useState(false);
 
   return (
-    <UserContext.Provider value={{ user, setUser, role, chooseService, setChooseService }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        role,
+        chooseService,
+        setChooseService,
+        isUpSlip,
+        setIsUpSlip,
+        isFinishWork,
+        setIsFinishWork
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

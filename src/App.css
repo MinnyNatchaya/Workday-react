@@ -1588,6 +1588,17 @@ textarea {
 }
 
 /* slipPopup */
+.imgSlipUpload {
+  width: 40%;
+  margin: 15px auto;
+  /* border: 2px dashed red; */
+}
+
+.imgSlipUploadCrop {
+  min-width: 100%;
+  object-fit: cover;
+  /* border: 2px dashed red; */
+}
 
 .slipPopup {
   position: fixed;
@@ -1598,7 +1609,7 @@ textarea {
   border: 3px solid black;
   border-radius: 10px;
   width: 30%;
-  height: 60vh;
+  height: 70vh;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -1615,13 +1626,13 @@ textarea {
 
 .imgSlipCrop {
   width: 100%;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
 }
 
 .imgSlipCropChild {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   object-fit: cover;
 }
 

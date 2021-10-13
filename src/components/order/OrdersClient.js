@@ -1,6 +1,9 @@
+import { useState } from 'react';
+
 import OrdersClientActive from './OrdersClientActive';
 import OrdersClientForm from './OrdersClientForm';
 import Review from './Review';
+import Slip from './Slip';
 
 function OrdersClient() {
   return (
