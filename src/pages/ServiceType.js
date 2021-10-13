@@ -39,7 +39,7 @@ function ServiceType() {
               <div
                 className="boxYellow"
                 onClick={
-                  () => history.push(role === 'client' ? `/order/${item.id}` : `service-type-worker/${item.id}`)
+                  () => history.push(role === 'client' ? `/order/${item.id}` : `/service-type-worker/${item.id}`)
                   // setChooseService(curr => ({ ...curr, key: item.id, subCategoryId: item.id, subCategory: item.name }))
                 }
               >

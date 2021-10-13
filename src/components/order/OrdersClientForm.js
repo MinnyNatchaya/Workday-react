@@ -23,7 +23,8 @@ function OrdersClientForm() {
 
   const handleClickDelete = async (e, id) => {
     try {
-      await axios.delete(`/order/${id}`).then(setToggle(curr => !curr));
+      await axios.delete(`/order/${id}`);
+      setToggle(curr => !curr);
     } catch (err) {
       console.log(err);
     }

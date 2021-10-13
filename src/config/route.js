@@ -81,9 +81,10 @@ const route = {
         component: ServiceType
       },
       {
-        path: '/service-type-worker/:subCategoryId',
+        path: '/service-type-worker/:categoryId',
         component: SeviceTypeWorker
       },
+
       {
         path: '/profile/orders',
         component: ProfileOrder

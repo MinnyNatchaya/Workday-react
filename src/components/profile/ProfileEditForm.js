@@ -37,7 +37,7 @@ function ProfileEditForm() {
           setImgUrl(res.data.user[0].imgUrl);
         })
         .catch(err => {
-          console.log(err);
+          console.dir(err);
         });
     };
     callProfile();
@@ -107,8 +107,10 @@ function ProfileEditForm() {
         formData.append('telephone', telephone);
         formData.append('address', address);
         formData.append('gender', gender);
-        formData.append('imgUrl', imgUrl);
 
+        if (previewImgUrl) {
+          formData.append('imgUrl', imgUrl);
+        }
         await axios.put('/profile/edit', formData);
 
         history.push({
@@ -118,7 +120,7 @@ function ProfileEditForm() {
       }
     } catch (err) {
       setError(currErr => ({ ...currErr, username: err.response.data.message }));
-      console.log(err);
+      console.dir(err);
     }
   };
 
