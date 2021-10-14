@@ -73,7 +73,10 @@ function LoginForm() {
               className={error.username ? 'errorMessage' : 'normalMessage'}
               placeholder={error.username ? error.username : 'USERNAME/ชื่อบัญชีผู้ใช้'}
               value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={e => {
+                setError(curr => ({ ...curr, username: '' }));
+                setUsername(e.target.value);
+              }}
             />
             <input
               type="password"
@@ -82,7 +85,10 @@ function LoginForm() {
               className={error.password ? 'errorMessage' : 'normalMessage'}
               placeholder={error.password ? error.password : 'PASSWORD/รหัสผ่าน'}
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={e => {
+                setError(curr => ({ ...curr, password: '' }));
+                setPassword(e.target.value);
+              }}
             />
           </div>
 

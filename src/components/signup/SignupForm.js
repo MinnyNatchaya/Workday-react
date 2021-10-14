@@ -150,17 +150,20 @@ function SignupForm({ signupPage }) {
         />
 
         <div className="inputDate">
-          <input
-            type="date"
-            id="date"
-            name="date"
-            className={error.birthDate ? 'errorMessage' : 'normalMessage'}
-            value={birthDate}
-            onChange={e => {
-              setError(curr => ({ ...curr, birthDate: '' }));
-              setbirthDate(e.target.value);
-            }}
-          />
+          <div>
+            <p>วันเกิด: </p>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              className={error.birthDate ? 'errorMessage' : 'normalMessage'}
+              value={birthDate}
+              onChange={e => {
+                setError(curr => ({ ...curr, birthDate: '' }));
+                setbirthDate(e.target.value);
+              }}
+            />
+          </div>
           {error.birthDate && <span className="errorMessage">{error.birthDate}</span>}
         </div>
 

@@ -60,6 +60,11 @@ function CreateOrderForm() {
     let isError = false;
 
     try {
+      if (address.trim() === '') {
+        setError(currErr => ({ ...currErr, address: '**Please enter your address' }));
+        isError = true;
+      }
+
       if (date.trim() === '') {
         setError(currErr => ({ ...currErr, date: '**Please choose date' }));
         isError = true;
@@ -120,6 +125,7 @@ function CreateOrderForm() {
             }}
           />
 
+          <p>วันที่ต้องการให้เริ่มงาน</p>
           {error.date && <p className="errorMessage">{error.date}</p>}
           <input
             className="w100"
@@ -134,6 +140,7 @@ function CreateOrderForm() {
             }}
           />
 
+          <p>เลือกจังหวัดที่ต้องการรับบริการ</p>
           {error.city && <p className="errorMessage">{error.city}</p>}
           <select
             id="city"

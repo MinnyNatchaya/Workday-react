@@ -124,13 +124,14 @@ function CreateOrderForm() {
             }}
           />
 
+          <p>วันที่ต้องการให้เริ่มงาน</p>
           {error.date && <p className="errorMessage">{error.date}</p>}
           <input
             className="w100"
             type="date"
             id="date"
             name="date"
-            placeholder="วันที่ใช้บริการ"
+            placeholder="วันที่ต้องการให้เริ่มงาน"
             value={date}
             onChange={e => {
               setError(curr => ({ ...curr, date: '' }));
@@ -138,6 +139,7 @@ function CreateOrderForm() {
             }}
           />
 
+          <p>เลือกจังหวัดที่ต้องการรับบริการ</p>
           {error.city && <p className="errorMessage">{error.city}</p>}
           <select
             id="city"

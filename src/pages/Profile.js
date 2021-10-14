@@ -1,3 +1,4 @@
+import ReviewStar from '../components/order/ReviewStar';
 import ProfileForm from '../components/profile/ProfileForm';
 
 function Profile() {
@@ -8,6 +9,7 @@ function Profile() {
           <h2>PROFILE</h2>
         </div>
         <ProfileForm />
+        <ReviewStar />
       </div>
     </section>
   );

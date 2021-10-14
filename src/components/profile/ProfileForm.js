@@ -31,14 +31,16 @@ function ProfileForm() {
             <h3>{item.username}</h3>
 
             <div className="star">
+              <h1>{item.rate.toFixed(1)}</h1>
+              <p>/5.0</p>
               <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
+              {/* <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
               <i className="fas fa-star-half-alt"></i>
-              <i className="far fa-star"></i>
+              <i className="far fa-star"></i> */}
             </div>
 
-            <p>({item.rate} REVIEW)</p>
+            <p>( {item.review} review )</p>
             <h3>ประวัติ</h3>
           </div>
 

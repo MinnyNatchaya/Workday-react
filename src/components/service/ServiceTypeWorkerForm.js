@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from '../../config/axios';
 
-function ServiceTypeWorkerForm() {
+function ServiceTypeWorkerForm({ filterCity }) {
   const param = useParams();
   const [orderItem, setOrderItem] = useState([]);
   const history = useHistory();
@@ -36,7 +36,7 @@ function ServiceTypeWorkerForm() {
 
   return (
     <>
-      {orderItem.map(item => (
+      {filterCity.map(item => (
         <>
           {!item.workerId && (
             <div className="boxYellow">
@@ -64,6 +64,7 @@ function ServiceTypeWorkerForm() {
                 <div className="star">
                   <pre>คะแนนรีวิว : {item.client.rate} </pre>
                   <i className="fas fa-star"></i>
+                  <pre> ( {item.client.review} review )</pre>
                   {/* <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
               <i className="fas fa-star-half-alt"></i>

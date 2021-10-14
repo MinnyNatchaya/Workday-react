@@ -137,15 +137,6 @@ function ProfileEditForm() {
 
         <h3>{username}</h3>
 
-        <div className="star">
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star-half-alt"></i>
-          <i className="far fa-star"></i>
-        </div>
-
-        <p>({rate} REVIEW)</p>
         <h3>ประวัติ</h3>
       </div>
 

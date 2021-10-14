@@ -2,6 +2,7 @@ import axios from '../../config/axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../contexts/userContext';
+import Swal from 'sweetalert2';
 
 function OrdersClientForm() {
   const { setIsUpSlip, isFinishWork } = useContext(UserContext);
@@ -31,7 +32,6 @@ function OrdersClientForm() {
   const handleClickDelete = async (e, id) => {
     try {
       await axios.delete(`/order/${id}`);
-      alert('Upload success!');
       setToggle(curr => !curr);
     } catch (err) {
       console.log(err);
@@ -71,7 +71,15 @@ function OrdersClientForm() {
         const formData = new FormData();
         formData.append('slipUrl', slipUrl);
         await axios.put(`/order/uploadSlip/${id}`, formData);
-        alert('Upload slip success');
+
+        // alert('Upload slip success');
+        Swal.fire({
+          icon: 'success',
+          title: 'Upload slip success',
+          showConfirmButton: false,
+          timer: 1500
+        });
+
         setIsUpSlip(curr => !curr);
       }
     } catch (err) {
@@ -130,6 +138,7 @@ function OrdersClientForm() {
                           <div className="star">
                             <pre>คะแนนรีวิว : {item.worker.rate} </pre>
                             <i className="fas fa-star"></i>
+                            <pre> ( {item.worker.review} review )</pre>
                             {/* <i className="fas fa-star"></i>
                         <i className="fas fa-star"></i>
                         <i className="fas fa-star-half-alt"></i>

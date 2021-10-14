@@ -233,6 +233,17 @@ header .select {
   width: 20%;
 }
 /*----------------- body section review ----------------- */
+.slider {
+  height: 70vh;
+  width: 100%;
+  border: 2px dashed darkturquoise;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+}
+
 .review {
   display: flex;
   justify-content: center;
@@ -766,12 +777,17 @@ footer p {
   width: 50%;
 }
 
-.inputSignUpUser .inputDate input {
+.inputSignUpUser .inputDate div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputSignUpUser .inputDate div > input {
   font-size: 18px;
   box-sizing: border-box;
   padding: 15px;
   border-radius: 10px;
-  width: 100%;
+  width: 80%;
   border: 1px solid black;
 }
 
@@ -1156,16 +1172,23 @@ textarea {
   margin-bottom: 30px;
 }
 
+.bodyProfile .star {
+  display: flex;
+  align-items: flex-end;
+}
+
 .bodyProfile .star i {
-  font-size: 32px;
+  font-size: 18px;
+  color: #ffd700;
 }
 
 .bodyProfile p {
   line-height: 0px;
 }
 
-.bodyProfile p {
-  line-height: 0px;
+.bodyProfile .star > h1 {
+  font-size: 40px;
+  color: #1b9bed;
 }
 
 .user_profile_page .imgCrop {
@@ -1385,7 +1408,7 @@ textarea {
 
 .boxesList {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 30px;
 }
 
@@ -1578,7 +1601,7 @@ textarea {
   border: none;
   font-size: 18px;
   font-family: 'Kanit';
-  padding: 10px;
+  padding: 15px;
   width: 100%;
   border-radius: 10px;
 }
@@ -1670,3 +1693,112 @@ textarea {
 .btnAcceptSlip:hover {
   background-color: #e0a800;
 }
+
+/* ///////////////Review Profile///////////////////////// */
+
+.reviewHeadText {
+  margin: 80px 0px 30px 0px;
+}
+
+.reviewBox {
+  width: 80%;
+  border-radius: 10px;
+  padding: 50px 100px;
+  border: 3px solid black;
+  margin-bottom: 30px;
+}
+
+.reviewBoxUp {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.reviewBoxUp img {
+  width: 90px;
+  height: 90px;
+  margin-right: 50px;
+}
+
+.reviewBoxUpDetail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewBoxDown {
+  width: 100%;
+  text-align: center;
+}
+
+.reviewBoxDetail {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.reviewBoxDetail > fieldset {
+  margin-right: 20px;
+}
+/* .user_order_page .boxYellowWithWorker {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffcb05;
+  border-radius: 10px;
+  padding: 30px 75px;
+  margin-bottom: 15px;
+}
+
+.boxYellowWithWorker hr {
+  width: 100%;
+  border: 0.5px solid black;
+}
+
+
+.boxYellowWithWorker .boxYellowup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+} */
+
+/* .boxYellowWithWorker .boxYellowup .detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.boxYellowDown {
+  width: 100%;
+}
+
+.boxYellowWithWorker .boxYellowDownDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; */
+
+/* .detailProfile {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    border-radius: 10px;
+    padding: 50px 100px;
+    border: 3px solid black;
+  }
+  
+  .detailProfile div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .detailProfile div p {
+    width: 50%;
+  } */

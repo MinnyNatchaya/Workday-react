@@ -3,6 +3,7 @@ import axios from '../../config/axios';
 import { useContext, useEffect, useState } from 'react';
 import Slip from './Slip';
 import { UserContext } from '../../contexts/userContext';
+import Swal from 'sweetalert2';
 
 function OrdersWorkerForm() {
   const { isUpSlip, isFinishWork, setIsFinishWork } = useContext(UserContext);
@@ -29,7 +30,7 @@ function OrdersWorkerForm() {
   const handleClickCancleWork = async (e, id) => {
     try {
       await axios.put(`/service-type-worker/cancle/${id}`);
-      // setToggle(curr => !curr);
+      setToggle(curr => !curr);
     } catch (err) {
       console.dir(err);
     }
@@ -47,6 +48,13 @@ function OrdersWorkerForm() {
   const handleClickFinishWork = async (e, id) => {
     try {
       await axios.put(`/service-type-worker/finishWork/${id}`);
+      Swal.fire({
+        icon: 'success',
+        title: 'Finish work!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
       setIsFinishWork(curr => !curr);
     } catch (err) {
       console.dir(err);
@@ -103,6 +111,7 @@ function OrdersWorkerForm() {
                     <div className="star">
                       <pre>คะแนนรีวิว : {item.client.rate} </pre>
                       <i className="fas fa-star"></i>
+                      <pre> ( {item.client.review} review ) </pre>
                       {/* <i className="fas fa-star"></i>
                       <i className="fas fa-star"></i>
                       <i className="fas fa-star-half-alt"></i>
