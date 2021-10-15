@@ -1741,64 +1741,7 @@ textarea {
 .reviewBoxDetail > fieldset {
   margin-right: 20px;
 }
-/* .user_order_page .boxYellowWithWorker {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ffcb05;
-  border-radius: 10px;
-  padding: 30px 75px;
-  margin-bottom: 15px;
+
+.carousel-item.active {
+  display: block;
 }
-
-.boxYellowWithWorker hr {
-  width: 100%;
-  border: 0.5px solid black;
-}
-
-
-.boxYellowWithWorker .boxYellowup {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-} */
-
-/* .boxYellowWithWorker .boxYellowup .detail {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.boxYellowDown {
-  width: 100%;
-}
-
-.boxYellowWithWorker .boxYellowDownDetail {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%; */
-
-/* .detailProfile {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    border-radius: 10px;
-    padding: 50px 100px;
-    border: 3px solid black;
-  }
-  
-  .detailProfile div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .detailProfile div p {
-    width: 50%;
-  } */

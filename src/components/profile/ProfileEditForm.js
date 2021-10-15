@@ -34,7 +34,11 @@ function ProfileEditForm() {
           setTelephone(res.data.user[0].telephone);
           // setAddress(res.data.user[0].address);
           setGender(res.data.user[0].gender);
-          setImgUrl(res.data.user[0].imgUrl);
+          setImgUrl(
+            res.data.user[0].imgUrl
+              ? res.data.user[0].imgUrl
+              : 'https://res.cloudinary.com/dl7u9oybl/image/upload/v1633073970/l6y8yhzctblrttmt2xpp.png'
+          );
         })
         .catch(err => {
           console.dir(err);

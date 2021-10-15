@@ -9,7 +9,7 @@ import { setToken } from '../services/localStorage';
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState({});
 
   const { setUser } = useContext(UserContext);
 

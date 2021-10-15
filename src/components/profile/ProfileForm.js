@@ -25,7 +25,15 @@ function ProfileForm() {
         <>
           <div className="bodyProfile">
             <div className="imgCrop">
-              <img className="imgCropChild" src={item.imgUrl} alt="" />
+              <img
+                className="imgCropChild"
+                src={
+                  item.imgUrl
+                    ? item.imgUrl
+                    : 'https://res.cloudinary.com/dl7u9oybl/image/upload/v1633073970/l6y8yhzctblrttmt2xpp.png'
+                }
+                alt=""
+              />
             </div>
 
             <h3>{item.username}</h3>

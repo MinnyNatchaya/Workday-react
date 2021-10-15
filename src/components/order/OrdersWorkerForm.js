@@ -127,9 +127,12 @@ function OrdersWorkerForm() {
                       <button className="btnCancleWork" onClick={e => handleClickCancleWork(e, item.id)}>
                         ยกเลิกงาน
                       </button>
-                      <Link to="/profile-orders">
-                        <button className="btnFinishtWork">ทำรายการสำเร็จ</button>
-                      </Link>
+
+                      {/* {item.slipUrl && (
+                        <Link to="/profile-orders">
+                          <button className="btnFinishtWork">ทำรายการสำเร็จ</button>
+                        </Link>
+                      )} */}
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
-import ReviewStar from '../components/order/ReviewStar';
 import ProfileForm from '../components/profile/ProfileForm';
+import ReviewStar from '../components/profile/ReviewStar';
 
 function Profile() {
   return (
