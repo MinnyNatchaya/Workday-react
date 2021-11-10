@@ -78,12 +78,11 @@ function ProfileEditForm() {
         isError = true;
       }
 
-      if (password.trim() === '') {
-        setError(currErr => ({ ...currErr, password: '**Please enter your password' }));
-        isError = true;
-      } else if (password.length < 6) {
-        setError(currErr => ({ ...currErr, password: '**Password validation is at least 6 character' }));
-        isError = true;
+      if (password) {
+        if (password.length < 6) {
+          setError(currErr => ({ ...currErr, password: '**Password validation is at least 6 character' }));
+          isError = true;
+        }
       }
 
       if (birthDate.trim() === '') {
@@ -103,10 +102,15 @@ function ProfileEditForm() {
 
       if (!isError) {
         const formData = new FormData();
+
+        if (password) {
+          formData.append('password', password);
+        }
+
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
         formData.append('username', username);
-        formData.append('password', password);
+        // formData.append('password', password);
         formData.append('birthDate', birthDate);
         formData.append('telephone', telephone);
         formData.append('address', address);

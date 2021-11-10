@@ -54,8 +54,8 @@ function ProfileForm() {
 
           <div className="detailProfile">
             <div>
-              <p>ชื่อ : {item.lastName}</p>
-              <p>นามสกุล : {item.firstName}</p>
+              <p>ชื่อ : {item.firstName}</p>
+              <p>นามสกุล : {item.lastName}</p>
               <p>วันเกิด : {item.birthDate}</p>
               <p>เพศ : {item.gender}</p>
             </div>

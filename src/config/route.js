@@ -11,7 +11,7 @@ import ProfileOrder from '../pages/ProfileOrders';
 import Profile from '../pages/Profile';
 import ProfileEdit from '../pages/ProfileEdit';
 
-const route = {
+const routes = {
   guest: {
     route: [
       {
@@ -102,4 +102,4 @@ const route = {
   }
 };
 
-export default route;
+export default routes;
