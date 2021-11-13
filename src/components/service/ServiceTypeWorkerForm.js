@@ -1,11 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from '../../config/axios';
+import { SocketContext } from '../../contexts/socketContext';
 
 function ServiceTypeWorkerForm({ filterCity }) {
+  console.dir(filterCity);
   const param = useParams();
   const [orderItem, setOrderItem] = useState([]);
   const history = useHistory();
+
+  const { socket } = useContext(SocketContext);
+
+  useEffect(() => {
+    if (socket !== '') {
+      socket.on('receive_changeWorker', () => {
+        window.location.reload();
+      });
+    }
+  }, [socket]);
 
   useEffect(() => {
     const callOrders = async () => {
@@ -21,10 +33,18 @@ function ServiceTypeWorkerForm({ filterCity }) {
     callOrders();
   }, []);
 
-  const handleClickAcceptWork = async (e, id) => {
+  const handleClickAcceptWork = async (e, id, clientId) => {
     // console.dir(id);
     try {
       await axios.put(`/service-type-worker/acceptwork/${id}`);
+
+      const messageData = {
+        clientId: clientId,
+        message: 'reload'
+      };
+
+      socket.emit('workerAcceptWork', messageData);
+
       history.push({
         pathname: '/profile/orders',
         state: { message: 'Your order has been updated' }
@@ -49,7 +69,7 @@ function ServiceTypeWorkerForm({ filterCity }) {
                 </div>
                 <div className="btn">
                   <a>
-                    <button className="btnAcceptWork" onClick={e => handleClickAcceptWork(e, item.id)}>
+                    <button className="btnAcceptWork" onClick={e => handleClickAcceptWork(e, item.id, item.clientId)}>
                       รับงาน
                     </button>
                   </a>

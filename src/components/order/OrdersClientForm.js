@@ -2,6 +2,7 @@ import axios from '../../config/axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../contexts/userContext';
+import { SocketContext } from '../../contexts/socketContext';
 import Swal from 'sweetalert2';
 
 function OrdersClientForm() {
@@ -14,6 +15,40 @@ function OrdersClientForm() {
   const [error, setError] = useState({});
 
   const history = useHistory();
+
+  const { socket } = useContext(SocketContext);
+
+  useEffect(() => {
+    if (socket !== '') {
+      socket.on('receive_workerAcceptWork', () => {
+        window.location.reload();
+      });
+    }
+  }, [socket]);
+
+  useEffect(() => {
+    if (socket !== '') {
+      socket.on('receive_workerCancleWork', () => {
+        window.location.reload();
+      });
+    }
+  }, [socket]);
+
+  useEffect(() => {
+    if (socket !== '') {
+      socket.on('receive_workerCancleSlip', () => {
+        window.location.reload();
+      });
+    }
+  }, [socket]);
+
+  useEffect(() => {
+    if (socket !== '') {
+      socket.on('receive_workerAcceptSlip', () => {
+        window.location.reload();
+      });
+    }
+  }, [socket]);
 
   useEffect(() => {
     const callOrders = async () => {
@@ -38,9 +73,16 @@ function OrdersClientForm() {
     }
   };
 
-  const handleClickChangeWorker = async (e, id) => {
+  const handleClickChangeWorker = async (e, id, workerId) => {
     try {
       await axios.put(`/order/changeWorker/${id}`);
+
+      const messageData = {
+        workerId: workerId,
+        message: 'reload'
+      };
+      socket.emit('changeWorker', messageData);
+
       setToggle(curr => !curr);
     } catch (err) {
       console.dir(err);
@@ -60,7 +102,7 @@ function OrdersClientForm() {
     setPreviewSlipUrl(URL.createObjectURL(e.target.files[0]));
   };
 
-  const handleClickUploadSlip = async (e, id) => {
+  const handleClickUploadSlip = async (e, id, workerId) => {
     let isError = false;
     try {
       if (previewSlipUrl.trim() === '') {
@@ -79,6 +121,12 @@ function OrdersClientForm() {
           showConfirmButton: false,
           timer: 1500
         });
+
+        const messageData = {
+          workerId: workerId,
+          message: 'reload'
+        };
+        socket.emit('clientUploadSlip', messageData);
 
         setIsUpSlip(curr => !curr);
       }
@@ -146,33 +194,42 @@ function OrdersClientForm() {
                           </div>
                         </div>
 
-                        <button className="btnChangeWorker" onClick={e => handleClickChangeWorker(e, item.id)}>
+                        <button
+                          className="btnChangeWorker"
+                          onClick={e => handleClickChangeWorker(e, item.id, item.workerId)}
+                        >
                           เปลี่ยนช่าง
                         </button>
                       </div>
 
                       {previewSlipUrl && (
-                        <div className="imgSlipUpload">
-                          <img className="imgSlipUploadCrop" src={previewSlipUrl} alt="" />
-                        </div>
+                        <>
+                          <div className="imgSlipUpload">
+                            <img className="imgSlipUploadCrop" src={previewSlipUrl} alt="" />
+                          </div>
+                          <button
+                            className="btnFinishtWork"
+                            onClick={e => handleClickUploadSlip(e, item.id, item.workerId)}
+                          >
+                            ยืนยัน
+                          </button>
+                        </>
                       )}
 
-                      {error.slipUrl && <p className="errorMessage">{error.slipUrl}</p>}
-                      <button className="btnUpSlip" onClick={handleClickUploadImg}>
-                        อัพโหลดหลักฐานการชำระเงิน
-                      </button>
-                      <input
-                        type="file"
-                        ref={hiddenFileInput}
-                        onChange={handleChangeUploadImg}
-                        style={{ display: 'none' }}
-                      />
-
-                      <a>
-                        <button className="btnFinishtWork" onClick={e => handleClickUploadSlip(e, item.id)}>
-                          ทำรายการสำเร็จ
-                        </button>
-                      </a>
+                      {!previewSlipUrl && (
+                        <>
+                          {error.slipUrl && <p className="errorMessage">{error.slipUrl}</p>}
+                          <button className="btnUpSlip" onClick={handleClickUploadImg}>
+                            อัพโหลดหลักฐานการชำระเงิน
+                          </button>
+                          <input
+                            type="file"
+                            ref={hiddenFileInput}
+                            onChange={handleChangeUploadImg}
+                            style={{ display: 'none' }}
+                          />
+                        </>
+                      )}
                     </div>
                   </div>
                 )}
